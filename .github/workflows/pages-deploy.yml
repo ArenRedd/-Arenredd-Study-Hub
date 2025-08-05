@@ -3,7 +3,7 @@ name: Deploy Chirpy site to GitHub Pages
 on:
   push:
     branches:
-      - main  # change to 'master' if that's your default branch
+      - main  # change to master if needed
 
 jobs:
   build-deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1
+          ruby-version: '3.1'
 
       - name: Install dependencies
         run: |
@@ -31,4 +31,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_si
+          publish_dir: ./_site
+
